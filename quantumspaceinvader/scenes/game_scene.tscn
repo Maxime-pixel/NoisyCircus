@@ -18,9 +18,9 @@ zoom = Vector2(0.25, 0.25)
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -6
 layout_direction = 1
-offset_left = -2310.0
-offset_top = -1317.0
-offset_right = 2299.0
-offset_bottom = 1261.0
+offset_left = -2304.0
+offset_top = -1294.0
+offset_right = 2380.0
+offset_bottom = 1309.0
 texture = ExtResource("3_bw6k5")
 stretch_mode = 4
