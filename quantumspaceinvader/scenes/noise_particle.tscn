@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bplodebl7enaf"]
+
+[ext_resource type="Texture2D" uid="uid://b8b0sqtkr6qy0" path="res://assets/particle_.png" id="1_cxvsd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ycayy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y3j0m"]
+radius = 15.0333
+
+[node name="NoiseParticle" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_ycayy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, -0.375)
+shape = SubResource("CircleShape2D_y3j0m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.75, -1.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_cxvsd")
