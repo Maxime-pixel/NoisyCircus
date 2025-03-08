@@ -8,7 +8,7 @@
 
 [node name="Player" parent="." instance=ExtResource("1_uqa2c")]
 unique_name_in_owner = true
-position = Vector2(3, -2)
+position = Vector2(19, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.25, 0.25)
