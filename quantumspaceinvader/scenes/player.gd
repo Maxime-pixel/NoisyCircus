@@ -1,13 +1,15 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 1000.0
 var max_health = 10
 var health = max_health
 var look_up = true
 @onready var spawner: Node2D = $"../Spawner"
 var left_entangled = false
 var right_entangled = false
+
+var player_index = 1
 
 var projectile = preload("res://scenes/projectiile.tscn")
 
@@ -21,15 +23,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-	if not look_up and Input.is_action_pressed("move_up"):
-		rotate(3.14)
-		look_up = true
-		
-	elif look_up and Input.is_action_pressed("move_down"):
-		rotate(-3.14)
-		look_up = false
+	if Input.is_action_just_pressed("switch") or Input.is_action_just_pressed("switch"):
+		rotate(PI)
+		look_up = not look_up
 
 	move_and_slide()
+	position.x = wrapf(position.x, -2250, 2250)
 
 
 func _on_timer_timeout() -> void:
@@ -44,6 +43,7 @@ func _on_timer_timeout() -> void:
 
 func _take_damage() -> void:
 	spawner.is_active = false
+	
 	self.queue_free()
 	
 	
