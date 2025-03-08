@@ -5,7 +5,9 @@ const SPEED = 1000.0
 var max_health = 10
 var health = max_health
 var look_up = true
-@onready var spawner: Node2D = $"../Spawner"
+@onready var spawner: Node2D = $"../../Spawner"
+
+
 var left_entangled = false
 var right_entangled = false
 
@@ -42,7 +44,6 @@ func _on_timer_timeout() -> void:
 
 
 func _take_damage() -> void:
-	spawner.is_active = false
 	
 	self.queue_free()
 	

@@ -2,6 +2,8 @@ extends Area2D
 
 var preload_qubits = preload("res://scenes/player.tscn")
 @onready var new_qubit: Area2D = $"../NewQubit"
+@onready var player_list: Node2D = get_tree().current_scene.get_node("PlayerList")
+
 
 @onready var cnot: Node2D = $".."
 var left_cnot
@@ -31,7 +33,8 @@ func _on_body_entered(body: Node2D) -> void:
 	elif not left_cnot and not body.right_entangled:
 		body.right_entangled = true
 		new_player.left_entangled = true
+
 		
 	
-	get_tree().current_scene.call_deferred("add_child", new_player)
+	player_list.call_deferred("add_child", new_player)
 	cnot.queue_free()
