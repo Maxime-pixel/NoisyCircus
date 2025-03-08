@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 100
+const SPEED = 50
 var sign = 1
 var player
 var norm
@@ -12,8 +12,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	position.x -= norm.x * delta * SPEED
 	position.y -= norm.y * delta * SPEED
+	if position.x > 2000 or position.x < -2000 or position.y > 1080 or position.y < -1080 :
+		queue_free()
+		print("freeing particle")
 
 func _on_body_entered(body: Node2D) -> void:
-	print("touched")
-	
-	#body._take_damage()
+	body._take_damage()

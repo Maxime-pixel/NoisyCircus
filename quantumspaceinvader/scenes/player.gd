@@ -5,7 +5,7 @@ const SPEED = 300.0
 var max_health = 10
 var health = max_health
 var look_up = true
-
+@onready var spawner: Node2D = $"../Spawner"
 
 var projectile = preload("res://scenes/projectiile.tscn")
 
