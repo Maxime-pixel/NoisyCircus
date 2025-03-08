@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bggy3wqj5cmcj"]
+
+[node name="Noise" type="CharacterBody2D"]
