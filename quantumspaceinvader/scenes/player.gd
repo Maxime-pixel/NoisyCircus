@@ -37,7 +37,7 @@ func _on_timer_timeout() -> void:
 	var sign = -1
 	if not look_up:
 		sign = 1
-	new_projectile.position = position + Vector2(0,  sign * 100)
+	new_projectile.position = position + Vector2(0,  sign * 115)
 	new_projectile.up = -sign
 	get_tree().root.add_child(new_projectile)
 
