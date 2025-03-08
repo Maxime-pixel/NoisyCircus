@@ -43,7 +43,7 @@ func _on_timer_timeout() -> void:
 
 
 func _take_damage() -> void:
-	
+	spawner.is_active = false
 	self.queue_free()
 	
 	
