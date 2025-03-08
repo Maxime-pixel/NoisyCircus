@@ -6,7 +6,7 @@ var player
 var norm
 
 var rng = RandomNumberGenerator.new()
-var CXCHANCES = 5
+var CXCHANCES = 1
 var preload_cnot = preload("res://scenes/cnot.tscn")
 func _ready() -> void:
 	var difference = position - player.global_position
@@ -26,6 +26,8 @@ func destroy():
 	if rng_val == 0:
 		var cnot_node = preload_cnot.instantiate()
 		cnot_node.position = position
+		if position.y > player.position.y:
+			sign = -1
 		cnot_node.SPEED = cnot_node.SPEED * sign
 		get_tree().current_scene.call_deferred("add_child", cnot_node)
 	self.queue_free()

@@ -1,7 +1,7 @@
 extends Node2D
 @onready var new_qubit: Area2D = $NewQubit
 @onready var control: Area2D = $Control
-var SPEED = 40
+var SPEED = 100
 var MIN_DIST = 150
 var MAX_DIST = 500
 func _draw():
