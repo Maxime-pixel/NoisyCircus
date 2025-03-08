@@ -3,10 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bbxmkaxdegoe0" path="res://scenes/player.tscn" id="1_uqa2c"]
 [ext_resource type="Texture2D" uid="uid://d6dki81bp24y" path="res://assets/Background_2.png" id="3_bw6k5"]
 [ext_resource type="PackedScene" uid="uid://ddtew1scdv26h" path="res://scenes/spawner.tscn" id="3_ycayy"]
-[ext_resource type="PackedScene" uid="uid://gt2ytocd0qqr" path="res://scenes/cnot.tscn" id="4_bw6k5"]
-[ext_resource type="Texture2D" uid="uid://cqcykl23jpbqr" path="res://assets/audience.png" id="5_y3j0m"]
-[ext_resource type="Script" uid="uid://dq30s8ybepnu" path="res://scenes/game_manager.gd" id="4_bw6k5"]
 [ext_resource type="Script" uid="uid://vmigh40evun3" path="res://scenes/player_list.gd" id="4_y3j0m"]
+[ext_resource type="Texture2D" uid="uid://cqcykl23jpbqr" path="res://assets/audience.png" id="5_y3j0m"]
 
 [node name="GameScene" type="Node2D"]
 
@@ -40,9 +38,6 @@ text = "TIme before next wave: 0"
 wait_time = 60.0
 autostart = true
 
-[node name="Cnot" parent="." instance=ExtResource("4_bw6k5")]
-position = Vector2(9, -477)
-
 [node name="Audience" type="TextureRect" parent="."]
 z_index = 3
 offset_left = -2294.0
@@ -61,6 +56,7 @@ offset_bottom = -1778.0
 texture = ExtResource("5_y3j0m")
 flip_h = true
 flip_v = true
+
 [node name="PlayerList" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_y3j0m")
