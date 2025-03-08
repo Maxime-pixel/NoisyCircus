@@ -1,20 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxw3gsf5gmmsw"]
+[gd_scene load_steps=6 format=3 uid="uid://bxw3gsf5gmmsw"]
 
 [ext_resource type="PackedScene" uid="uid://bbxmkaxdegoe0" path="res://scenes/player.tscn" id="1_uqa2c"]
 [ext_resource type="Texture2D" uid="uid://d6dki81bp24y" path="res://assets/Background_2.png" id="3_bw6k5"]
 [ext_resource type="PackedScene" uid="uid://ddtew1scdv26h" path="res://scenes/spawner.tscn" id="3_ycayy"]
 [ext_resource type="Script" uid="uid://dq30s8ybepnu" path="res://scenes/game_manager.gd" id="4_bw6k5"]
+[ext_resource type="Script" uid="uid://vmigh40evun3" path="res://scenes/player_list.gd" id="4_y3j0m"]
 
 [node name="GameScene" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource("1_uqa2c")]
-unique_name_in_owner = true
-position = Vector2(19, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.25, 0.25)
 
 [node name="Spawner" parent="." instance=ExtResource("3_ycayy")]
+unique_name_in_owner = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -6
@@ -40,3 +38,10 @@ text = "TIme before next wave: 0"
 [node name="Timer" type="Timer" parent="GameManager"]
 wait_time = 60.0
 autostart = true
+
+[node name="PlayerList" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_y3j0m")
+
+[node name="Player" parent="PlayerList" instance=ExtResource("1_uqa2c")]
+position = Vector2(19, 0)

@@ -4,11 +4,12 @@ var MEASURECHANCES = 200
 var rng = RandomNumberGenerator.new()
 var particle = preload("res://scenes/noise_2.tscn")
 var measure = preload("res://scenes/gate_measure.tscn")
-@onready var player: CharacterBody2D = %Player
 var is_active = true
+@onready var player_list: Node2D = $"../PlayerList"
 
 func _on_timer_timeout() -> void:
-	if is_active == false :
+	var player_target = player_list.get_random_player()
+	if is_active == false or player_target == null:
 		return
 	var rand_num = rng.randi_range(0, MEASURECHANCES)
 	var new_node
@@ -16,7 +17,7 @@ func _on_timer_timeout() -> void:
 		new_node = measure.instantiate()
 	else:
 		new_node = particle.instantiate()
-		new_node.player = player
+		new_node.player = player_target
 	new_node.position = Vector2(rng.randf_range(-1920, 1920), -1080)
 	if rng.randf() > 0.5:
 		new_node.position.y *= -1
