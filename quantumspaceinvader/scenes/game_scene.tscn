@@ -6,13 +6,21 @@
 
 [node name="GameScene" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_bw6k5")
-
 [node name="Player" parent="." instance=ExtResource("1_uqa2c")]
 unique_name_in_owner = true
 position = Vector2(3, -2)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.25, 0.25)
 
 [node name="Spawner" parent="." instance=ExtResource("3_ycayy")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -6
+layout_direction = 1
+offset_left = -2310.0
+offset_top = -1317.0
+offset_right = 2299.0
+offset_bottom = 1261.0
+texture = ExtResource("3_bw6k5")
+stretch_mode = 4
