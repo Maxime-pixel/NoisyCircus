@@ -14,7 +14,6 @@ func _physics_process(delta: float) -> void:
 	position.y -= norm.y * delta * SPEED
 	if position.x > 2000 or position.x < -2000 or position.y > 1100 or position.y < -1100 :
 		queue_free()
-		print("freeing particle")
 
 func _on_body_entered(body: Node2D) -> void:
 	body._take_damage()
