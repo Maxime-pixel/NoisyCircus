@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbvk5dve48oyk"]
 
 [ext_resource type="Script" uid="uid://cyqn5wec8tbsv" path="res://scenes/noise_2.gd" id="1_5biqg"]
-[ext_resource type="Texture2D" uid="uid://cmvprpvlb4k1q" path="res://assets/particle.png" id="1_sgmvf"]
+[ext_resource type="Texture2D" uid="uid://ofj1yaq4l14u" path="res://assets/noise_icon.png" id="2_5biqg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5biqg"]
-radius = 150.0
+radius = 810.0
 
 [node name="noise2" type="Area2D"]
 scale = Vector2(2, 2)
@@ -13,12 +13,12 @@ collision_mask = 5
 script = ExtResource("1_5biqg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -5.96046e-08)
-scale = Vector2(0.25, 0.245)
-texture = ExtResource("1_sgmvf")
+position = Vector2(0.13125, -5.96046e-08)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_5biqg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 2)
+position = Vector2(0, 2)
 scale = Vector2(0.1, 0.098)
 shape = SubResource("CircleShape2D_5biqg")
 

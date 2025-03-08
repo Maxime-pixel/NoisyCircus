@@ -10,6 +10,7 @@ var CXCHANCES = 1
 var preload_cnot = preload("res://scenes/cnot.tscn")
 func _ready() -> void:
 	var difference = position - player.global_position
+	self.rotate(get_angle_to(difference))
 	norm = difference.normalized()
 
 func _physics_process(delta: float) -> void:
