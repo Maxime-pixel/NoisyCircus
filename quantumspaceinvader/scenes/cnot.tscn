@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1sa1lsjbn3mc"]
+
+[ext_resource type="Script" uid="uid://mkumeaeys82m" path="res://scenes/control.gd" id="1_57lb2"]
+[ext_resource type="Texture2D" uid="uid://bmr0j1mt7732h" path="res://assets/control.png" id="1_fy0ax"]
+[ext_resource type="Script" uid="uid://deo0b5l1x6h7a" path="res://scenes/cnot.gd" id="1_qgbxu"]
+[ext_resource type="Texture2D" uid="uid://ct08h2ig2c16c" path="res://assets/Qubit_ent.png" id="2_57lb2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgbxu"]
+radius = 108.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f0r8e"]
+radius = 107.117
+
+[node name="Cnot" type="Node2D"]
+light_mask = 8
+visibility_layer = 8
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_qgbxu")
+
+[node name="Control" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_57lb2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+scale = Vector2(0.236973, 0.236973)
+texture = ExtResource("1_fy0ax")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control"]
+shape = SubResource("CircleShape2D_qgbxu")
+
+[node name="NewQubit" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="NewQubit"]
+position = Vector2(0, 2)
+scale = Vector2(0.269947, 0.269947)
+texture = ExtResource("2_57lb2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NewQubit"]
+shape = SubResource("CircleShape2D_f0r8e")
+
+[connection signal="body_entered" from="Control" to="Control" method="_on_body_entered"]

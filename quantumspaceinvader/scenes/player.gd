@@ -6,6 +6,8 @@ var max_health = 10
 var health = max_health
 var look_up = true
 @onready var spawner: Node2D = $"../Spawner"
+var left_entangled = false
+var right_entangled = false
 
 var projectile = preload("res://scenes/projectiile.tscn")
 
