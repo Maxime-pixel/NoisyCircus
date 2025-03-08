@@ -1,14 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxw3gsf5gmmsw"]
 
 [ext_resource type="PackedScene" uid="uid://bbxmkaxdegoe0" path="res://scenes/player.tscn" id="1_uqa2c"]
-[ext_resource type="PackedScene" uid="uid://cenwwv00yx7t4" path="res://scenes/noise_2.tscn" id="2_onqr8"]
+[ext_resource type="PackedScene" uid="uid://bggy3wqj5cmcj" path="res://scenes/noise.tscn" id="2_onqr8"]
 
 [node name="GameScene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_uqa2c")]
-position = Vector2(3, -2)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="noise2" parent="." instance=ExtResource("2_onqr8")]
-position = Vector2(0, -255)
+[node name="noise" parent="." instance=ExtResource("2_onqr8")]

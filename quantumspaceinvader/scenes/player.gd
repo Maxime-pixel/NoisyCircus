@@ -38,5 +38,11 @@ func _on_timer_timeout() -> void:
 	new_projectile.position = position + Vector2(0,  sign * 100)
 	new_projectile.up = -sign
 	get_tree().root.add_child(new_projectile)
-	print("test")
+
+
+func _take_damage() -> void:
+	
+	self.queue_free()
+	
+	
 	
