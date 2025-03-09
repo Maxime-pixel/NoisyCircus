@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://b220uaqijpivl" path="res://assets/audio/alice_appearing/hi_alice_excited_pitched.wav" id="4_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://dgsgayj6hvr3f" path="res://assets/audio/alice_dies/adios_alice_pitched.wav" id="5_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://b278m3xmrease" path="res://assets/audio/alice_dies/alice_noo_pitche.wav" id="6_fjrip"]
+[ext_resource type="Texture2D" uid="uid://c8gj38qscvhr4" path="res://assets/ent_cord.png" id="7_fjrip"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
 radius = 84.2021
@@ -64,5 +65,17 @@ stream = SubResource("AudioStreamRandomizer_tuyoq")
 
 [node name="aliceDeath" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_smehm")
+
+[node name="ent_right" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(254, -35)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("7_fjrip")
+
+[node name="ent_left" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-152, -40)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("7_fjrip")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

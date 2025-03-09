@@ -5,6 +5,7 @@ const SPEED = 1000.0
 var max_health = 10
 var health = max_health
 var look_up = true
+var playerID
 @onready var spawner: Node2D = $"../../Spawner"
 @onready var player_list: Node2D = $".."
 @onready var game_over_screen: Node2D = $"../../GameOver"
@@ -43,7 +44,18 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	position.x = wrapf(position.x, -2250, 2250)
+	draw_ent()
 
+func draw_ent():
+	if left_entangled:
+		$ent_left.visible = true
+	else:
+		$ent_left.visible = false
+		
+	if right_entangled:
+		$ent_right.visible = true
+	else:
+		$ent_right.visible = false
 
 func _on_timer_timeout() -> void:
 	var new_projectile = projectile.instantiate()
@@ -66,4 +78,4 @@ func _take_damage() -> void:
 	$UpwardCollisionShape.disabled = true
 	alice_death.play()
 	await alice_death.finished
-	self.call_deferred("queue_free")
+	player_list.player_kill(playerID)
