@@ -18,8 +18,6 @@ func _on_body_entered(body: Node2D) -> void:
 	if player_list.player_list[0] !=  body and player_list.player_list[-1] != body:
 		cnot.queue_free()
 		return
-		
-	print(left_cnot)
 	player_list.player_add(body, distance, left_cnot)
 	
 	cnot.queue_free()

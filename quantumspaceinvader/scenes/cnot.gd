@@ -6,6 +6,7 @@ var MIN_DIST = 300
 var MAX_DIST = 800
 var rng = RandomNumberGenerator.new()
 
+ changes
 func _draw():
 	draw_line(control.position, new_qubit.position , Color.BLACK, 5)
 

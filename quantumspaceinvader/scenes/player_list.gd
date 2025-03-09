@@ -53,6 +53,7 @@ func player_add(player_neighboor, cnot_lenght, left):
 	
 	var new_player = preload_qubits.instantiate()
 	new_player.global_position.x = player_neighboor.global_position.x
+
 	new_player.global_position.y = player_neighboor.global_position.y
 	new_player.playerID = curr_player_id
 	curr_player_id += 1
@@ -66,12 +67,10 @@ func player_add(player_neighboor, cnot_lenght, left):
 	
 	self.call_deferred("add_child", new_player)
 	
-	
 func player_kill(player):
 	player_list.remove_at(player_list.find(player))
 	player.call_deferred("queue_free")
-	
-	
+
 			
 			
 	
