@@ -44,18 +44,8 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	position.x = wrapf(position.x, -2250, 2250)
-	draw_ent()
 
-func draw_ent():
-	if left_entangled:
-		$ent_left.visible = true
-	else:
-		$ent_left.visible = false
-		
-	if right_entangled:
-		$ent_right.visible = true
-	else:
-		$ent_right.visible = false
+
 
 func _on_timer_timeout() -> void:
 	var new_projectile = projectile.instantiate()
@@ -78,4 +68,4 @@ func _take_damage() -> void:
 	$UpwardCollisionShape.disabled = true
 	alice_death.play()
 	await alice_death.finished
-	player_list.player_kill(playerID)
+	player_list.player_kill(self)

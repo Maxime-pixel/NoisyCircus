@@ -18,6 +18,7 @@ func _on_timer_timeout() -> void:
 	var new_node
 	if rand_num == 0:
 		new_node = measure.instantiate()
+		new_node.player_list = player_list
 	else:
 		new_node = particle.instantiate()
 		new_node.player = player_target

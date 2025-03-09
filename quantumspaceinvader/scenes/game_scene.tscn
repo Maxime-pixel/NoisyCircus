@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxw3gsf5gmmsw"]
+[gd_scene load_steps=12 format=3 uid="uid://bxw3gsf5gmmsw"]
 
 [ext_resource type="Script" uid="uid://g7xcsmliw7dm" path="res://scenes/game_scene.gd" id="1_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://bbxmkaxdegoe0" path="res://scenes/player.tscn" id="1_uqa2c"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b6ohtvok43tfc" path="res://assets/Talk.png" id="5_b5spy"]
 [ext_resource type="Texture2D" uid="uid://cqcykl23jpbqr" path="res://assets/audience.png" id="5_y3j0m"]
 [ext_resource type="Script" path="res://scenes/talk_manag.gd" id="6_utbpp"]
+[ext_resource type="Texture2D" uid="uid://c8gj38qscvhr4" path="res://assets/ent_cord.png" id="11_tcjrq"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_kk2rg")
@@ -148,6 +149,27 @@ offset_right = 326.0
 offset_bottom = 155.0
 theme_override_font_sizes/font_size = 100
 text = "Play"
+
+[node name="entangle" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(2.49986, -363)
+scale = Vector2(1.19974, 0.387037)
+texture = ExtResource("11_tcjrq")
+
+[node name="entangle_left" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(2.49986, -363)
+scale = Vector2(1.19974, 0.387037)
+texture = ExtResource("11_tcjrq")
+
+[node name="entangle_right" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(2.49986, -363)
+scale = Vector2(1.19974, 0.387037)
+texture = ExtResource("11_tcjrq")
 
 [connection signal="pressed" from="GameOver/QuitGame" to="." method="_on_quit_game_pressed"]
 [connection signal="pressed" from="GameOver/PlayAgain" to="." method="_on_play_again_pressed"]
