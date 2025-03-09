@@ -8,6 +8,9 @@ var look_up = true
 @onready var spawner: Node2D = $"../../Spawner"
 @onready var player_list: Node2D = $".."
 @onready var game_over_screen: Node2D = $"../../GameOver"
+@onready var alice_appears: AudioStreamPlayer2D = $AliceAppears
+@onready var timer: Timer = $Timer
+@onready var alice_death: AudioStreamPlayer2D = $aliceDeath
 
 
 var left_entangled = false
@@ -16,6 +19,9 @@ var right_entangled = false
 var player_index = 1
 
 var projectile = preload("res://scenes/projectiile.tscn")
+
+func _ready() -> void:
+	alice_appears.play()
 
 func _physics_process(delta: float) -> void:
 
@@ -49,4 +55,10 @@ func _take_damage() -> void:
 	if len(player_list.get_children()) == 1:
 		print('game over...')
 		game_over_screen.visible = true
-	self.queue_free()
+		self.disable_mode
+	timer.stop()
+	self.hide()
+	$CollisionShape2D.disabled = true
+	alice_death.play()
+	await alice_death.finished
+	self.call_deferred("queue_free")

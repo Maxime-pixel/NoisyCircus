@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbvk5dve48oyk"]
+[gd_scene load_steps=7 format=3 uid="uid://dbvk5dve48oyk"]
 
 [ext_resource type="Script" uid="uid://cyqn5wec8tbsv" path="res://scenes/noise_2.gd" id="1_5biqg"]
 [ext_resource type="Texture2D" uid="uid://ofj1yaq4l14u" path="res://assets/noise_icon.png" id="2_5biqg"]
+[ext_resource type="AudioStream" uid="uid://ci6jibjypm04i" path="res://assets/audio/bubble_pop/bubble_pop.wav" id="3_owuyj"]
+[ext_resource type="AudioStream" uid="uid://p1ihodmnqino" path="res://assets/audio/bubble_pop/bubble_pop2.wav" id="4_oue4u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5biqg"]
 radius = 810.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kvam1"]
+streams_count = 2
+stream_0/stream = ExtResource("3_owuyj")
+stream_1/stream = ExtResource("4_oue4u")
 
 [node name="noise2" type="Area2D"]
 scale = Vector2(2, 2)
@@ -21,5 +28,8 @@ texture = ExtResource("2_5biqg")
 position = Vector2(0, 2)
 scale = Vector2(0.1, 0.098)
 shape = SubResource("CircleShape2D_5biqg")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_kvam1")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

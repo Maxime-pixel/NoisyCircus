@@ -8,6 +8,7 @@ var norm
 var rng = RandomNumberGenerator.new()
 var CXCHANCES = 1
 var preload_cnot = preload("res://scenes/cnot.tscn")
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _ready() -> void:
 	var difference = position - player.position
@@ -32,5 +33,7 @@ func destroy():
 			sign = -1
 		cnot_node.SPEED = cnot_node.SPEED * sign
 		get_tree().current_scene.call_deferred("add_child", cnot_node)
+	audio_stream_player_2d.play()
+	await audio_stream_player_2d.finished
 	self.queue_free()
 	
