@@ -1,5 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bxw3gsf5gmmsw"]
 
+[ext_resource type="Script" uid="uid://g7xcsmliw7dm" path="res://scenes/game_scene.gd" id="1_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://bbxmkaxdegoe0" path="res://scenes/player.tscn" id="1_uqa2c"]
 [ext_resource type="Texture2D" uid="uid://d6dki81bp24y" path="res://assets/Background_2.png" id="3_bw6k5"]
 [ext_resource type="Script" uid="uid://ol3hy82gbq6n" path="res://scenes/label.gd" id="3_rurhu"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cqcykl23jpbqr" path="res://assets/audience.png" id="5_y3j0m"]
 
 [node name="GameScene" type="Node2D"]
+script = ExtResource("1_kk2rg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.25, 0.25)
@@ -65,3 +67,34 @@ script = ExtResource("4_y3j0m")
 
 [node name="Player" parent="PlayerList" instance=ExtResource("1_uqa2c")]
 position = Vector2(19, 0)
+
+[node name="GameOver" type="Node2D" parent="."]
+visible = false
+z_index = 16
+
+[node name="TextureRect" type="TextureRect" parent="GameOver"]
+offset_left = -2297.0
+offset_top = -1289.0
+offset_right = 2324.0
+offset_bottom = 1323.0
+texture = ExtResource("3_bw6k5")
+
+[node name="QuitGame" type="Button" parent="GameOver"]
+offset_left = 346.0
+offset_top = -212.0
+offset_right = 1225.0
+offset_bottom = 209.0
+theme_override_font_sizes/font_size = 100
+text = "Quit
+"
+
+[node name="PlayAgain" type="Button" parent="GameOver"]
+offset_left = -1363.0
+offset_top = -204.0
+offset_right = -400.0
+offset_bottom = 195.0
+theme_override_font_sizes/font_size = 100
+text = "Play Again"
+
+[connection signal="pressed" from="GameOver/QuitGame" to="." method="_on_quit_game_pressed"]
+[connection signal="pressed" from="GameOver/PlayAgain" to="." method="_on_play_again_pressed"]

@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://o8u25oombwr8" path="res://scenes/projectiile.gd" id="1_jhbil"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8lq0f"]
-radius = 16.0
-height = 36.0
+radius = 21.0
+height = 42.0
 
 [node name="Projectiile" type="Area2D"]
 scale = Vector2(2, 2)

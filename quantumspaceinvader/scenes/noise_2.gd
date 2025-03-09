@@ -17,7 +17,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	position.x -= norm.x * delta * SPEED
 	position.y -= norm.y * delta * SPEED
-	if position.x > 2000 or position.x < -2000 or position.y > 1100 or position.y < -1100 :
+	if position.x > 2500 or position.x < -2500 or position.y > 1500 or position.y < -1500 :
 		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:

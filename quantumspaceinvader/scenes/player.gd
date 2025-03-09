@@ -6,6 +6,8 @@ var max_health = 10
 var health = max_health
 var look_up = true
 @onready var spawner: Node2D = $"../../Spawner"
+@onready var player_list: Node2D = $".."
+@onready var game_over_screen: Node2D = $"../../GameOver"
 
 
 var left_entangled = false
@@ -42,10 +44,9 @@ func _on_timer_timeout() -> void:
 	new_projectile.up = -sign
 	get_tree().root.add_child(new_projectile)
 
-
 func _take_damage() -> void:
-	
+	print('taking damage')
+	if len(player_list.get_children()) == 1:
+		print('game over...')
+		game_over_screen.visible = true
 	self.queue_free()
-	
-	
-	
