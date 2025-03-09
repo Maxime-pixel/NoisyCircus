@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://gt2ytocd0qqr"]
+[gd_scene load_steps=8 format=3 uid="uid://gt2ytocd0qqr"]
 
 [ext_resource type="Script" uid="uid://mkumeaeys82m" path="res://scenes/control.gd" id="1_57lb2"]
 [ext_resource type="Texture2D" uid="uid://bmr0j1mt7732h" path="res://assets/control.png" id="1_fy0ax"]
 [ext_resource type="Script" uid="uid://deo0b5l1x6h7a" path="res://scenes/cnot.gd" id="1_qgbxu"]
 [ext_resource type="Texture2D" uid="uid://ct08h2ig2c16c" path="res://assets/Qubit_ent.png" id="2_57lb2"]
+[ext_resource type="Texture2D" uid="uid://lju6mtdrr6xy" path="res://assets/CX.png" id="5_f0r8e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qgbxu"]
 radius = 108.0
@@ -40,5 +41,10 @@ texture = ExtResource("2_57lb2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NewQubit"]
 shape = SubResource("CircleShape2D_f0r8e")
+
+[node name="Sprite2D2" type="Sprite2D" parent="NewQubit"]
+position = Vector2(-12, -72)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_f0r8e")
 
 [connection signal="body_entered" from="Control" to="Control" method="_on_body_entered"]

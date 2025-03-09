@@ -26,6 +26,10 @@ func _ready() -> void:
 	alice_appears.play()
 
 func _physics_process(delta: float) -> void:
+	
+	if len(player_list.player_list) == 0:
+		game_over_screen.visible = true
+		self.disable_mode
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -70,9 +74,6 @@ func _on_timer_timeout() -> void:
 	get_tree().root.add_child(new_projectile)
 
 func _take_damage() -> void:
-	if len(player_list.get_children()) == 1:
-		game_over_screen.visible = true
-		self.disable_mode
 	timer.stop()
 	self.hide()
 	$DownwardCollisionShape.disabled = true
