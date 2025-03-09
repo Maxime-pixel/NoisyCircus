@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbxmkaxdegoe0"]
+[gd_scene load_steps=12 format=3 uid="uid://bbxmkaxdegoe0"]
 
 [ext_resource type="Script" uid="uid://ceiiyjuqxvocy" path="res://scenes/player.gd" id="1_01cuo"]
 [ext_resource type="Texture2D" uid="uid://brpa7vbw2hp24" path="res://assets/IMG_1242.png" id="2_qhqgy"]
-[ext_resource type="Texture2D" uid="uid://1nc2et6rkc5w" path="res://assets/IMG_1243.png" id="3_dqkch"]
+[ext_resource type="AudioStream" uid="uid://xgxxd2mcxog7" path="res://assets/audio/alice_appearing/hi_alice_shouted_pitched.wav" id="3_dqkch"]
+[ext_resource type="Texture2D" uid="uid://1nc2et6rkc5w" path="res://assets/IMG_1243.png" id="3_fjrip"]
+[ext_resource type="AudioStream" uid="uid://b220uaqijpivl" path="res://assets/audio/alice_appearing/hi_alice_excited_pitched.wav" id="4_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://dgsgayj6hvr3f" path="res://assets/audio/alice_dies/adios_alice_pitched.wav" id="5_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://b278m3xmrease" path="res://assets/audio/alice_dies/alice_noo_pitche.wav" id="6_fjrip"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
 radius = 84.2021
@@ -11,6 +15,16 @@ height = 277.178
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qlg0r"]
 radius = 73.0
 height = 238.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tuyoq"]
+streams_count = 2
+stream_0/stream = ExtResource("3_dqkch")
+stream_1/stream = ExtResource("4_qlg0r")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_smehm"]
+streams_count = 2
+stream_0/stream = ExtResource("5_tuyoq")
+stream_1/stream = ExtResource("6_fjrip")
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 11
@@ -37,12 +51,18 @@ visible = false
 position = Vector2(-27, 7)
 rotation = 0.0139626
 scale = Vector2(0.190008, 0.190008)
-texture = ExtResource("3_dqkch")
+texture = ExtResource("3_fjrip")
 
 [node name="DownwardCollisionShape" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(-43, 80)
 rotation = 0.174533
 shape = SubResource("CapsuleShape2D_qlg0r")
+
+[node name="AliceAppears" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_tuyoq")
+
+[node name="aliceDeath" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_smehm")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -21,6 +21,7 @@ var player_index = 1
 var projectile = preload("res://scenes/projectiile.tscn")
 
 func _ready() -> void:
+	$DownwardCollisionShape.disabled = true
 	alice_appears.play()
 
 func _physics_process(delta: float) -> void:
@@ -35,9 +36,9 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("switch") or Input.is_action_just_pressed("switch"):
 		look_up = not look_up
-		$UpwardCollisionShape.visible = not $UpwardCollisionShape.visible
+		$UpwardCollisionShape.disabled = not $UpwardCollisionShape.disabled
 		$UpwardSprite.visible = not $UpwardSprite.visible
-		$DownwardCollisionShape.visible = not $DownwardCollisionShape.visible
+		$DownwardCollisionShape.disabled = not $DownwardCollisionShape.disabled
 		$DownwardSprite.visible = not $DownwardSprite.visible
 
 	move_and_slide()
@@ -63,7 +64,8 @@ func _take_damage() -> void:
 		self.disable_mode
 	timer.stop()
 	self.hide()
-	$CollisionShape2D.disabled = true
+	$DownwardCollisionShape.disabled = true
+	$UpwardCollisionShape.disabled = true
 	alice_death.play()
 	await alice_death.finished
 	self.call_deferred("queue_free")
