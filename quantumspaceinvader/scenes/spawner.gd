@@ -1,6 +1,6 @@
 extends Node2D
 
-var MEASURECHANCES = 200
+var MEASURECHANCES = 20
 var rng = RandomNumberGenerator.new()
 var particle = preload("res://scenes/noise_2.tscn")
 var measure = preload("res://scenes/gate_measure.tscn")

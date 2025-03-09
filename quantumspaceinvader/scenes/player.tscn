@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbxmkaxdegoe0"]
+[gd_scene load_steps=13 format=3 uid="uid://bbxmkaxdegoe0"]
 
 [ext_resource type="Script" uid="uid://ceiiyjuqxvocy" path="res://scenes/player.gd" id="1_01cuo"]
 [ext_resource type="Texture2D" uid="uid://brpa7vbw2hp24" path="res://assets/IMG_1242.png" id="2_qhqgy"]
@@ -67,14 +67,12 @@ stream = SubResource("AudioStreamRandomizer_tuyoq")
 stream = SubResource("AudioStreamRandomizer_smehm")
 
 [node name="ent_right" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(254, -35)
+position = Vector2(254, -103)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("7_fjrip")
 
 [node name="ent_left" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-152, -40)
+position = Vector2(-152, -104)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("7_fjrip")
 

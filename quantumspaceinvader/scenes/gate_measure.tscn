@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bpxxd146rhymc"]
 
 [ext_resource type="Script" uid="uid://dnniyj7iaeond" path="res://scenes/gate_measure.gd" id="1_xvqm2"]
-[ext_resource type="Texture2D" uid="uid://bcd8vje64hrxm" path="res://assets/GateMeasure.png" id="1_ytr8n"]
+[ext_resource type="Texture2D" uid="uid://r0ooasgm1jax" path="res://assets/measurement.png" id="2_xvqm2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvqm2"]
-size = Vector2(194, 112)
+size = Vector2(127, 137)
 
 [node name="GateMeasure" type="Area2D"]
 collision_layer = 16
@@ -12,8 +12,10 @@ collision_mask = 16
 script = ExtResource("1_xvqm2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_ytr8n")
+position = Vector2(0, -5)
+scale = Vector2(0.568887, 0.568887)
+texture = ExtResource("2_xvqm2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, 2.5)
 shape = SubResource("RectangleShape2D_xvqm2")

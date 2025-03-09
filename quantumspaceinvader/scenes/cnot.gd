@@ -4,11 +4,13 @@ extends Node2D
 var SPEED = 100
 var MIN_DIST = 300
 var MAX_DIST = 800
+var rng = RandomNumberGenerator.new()
+
 func _draw():
 	draw_line(control.position, new_qubit.position , Color.BLACK, 5)
 
 func _ready() -> void:
-	var rng = RandomNumberGenerator.new()
+	
 	var left_distance = rng.randf_range(MAX_DIST, MIN_DIST)
 	var right_distance =  rng.randf_range(-MAX_DIST, -MIN_DIST)
 	
@@ -25,5 +27,4 @@ func _ready() -> void:
 	
 	
 func _physics_process(delta: float) -> void:
-	
 	position.y += SPEED * delta

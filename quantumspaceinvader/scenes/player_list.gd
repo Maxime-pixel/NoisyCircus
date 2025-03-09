@@ -44,6 +44,7 @@ func player_kill(player_id):
 		print("Player not found")
 		return
 	if player_index == 0 and len(player_list) > 1:
+		print("DEBBUGING")
 		player_list[1].left_entangled = false 
 	elif len(player_list) > 1 and player_index == len(player_list) - 1:
 		player_list[len(player_list) - 1].left_entangled = false
