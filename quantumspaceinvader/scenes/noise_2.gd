@@ -29,7 +29,7 @@ func destroy():
 	if rng_val == 0:
 		var cnot_node = preload_cnot.instantiate()
 		cnot_node.position = position
-		if position.y > player.position.y:
+		if position.y > 0:
 			sign = -1
 		cnot_node.SPEED = cnot_node.SPEED * sign
 		get_tree().current_scene.call_deferred("add_child", cnot_node)

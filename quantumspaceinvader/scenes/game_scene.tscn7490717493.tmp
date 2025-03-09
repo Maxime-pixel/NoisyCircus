@@ -1,0 +1,153 @@
+[gd_scene load_steps=11 format=3 uid="uid://bxw3gsf5gmmsw"]
+
+[ext_resource type="Script" uid="uid://g7xcsmliw7dm" path="res://scenes/game_scene.gd" id="1_kk2rg"]
+[ext_resource type="PackedScene" uid="uid://bbxmkaxdegoe0" path="res://scenes/player.tscn" id="1_uqa2c"]
+[ext_resource type="Texture2D" uid="uid://d6dki81bp24y" path="res://assets/Background_2.png" id="3_bw6k5"]
+[ext_resource type="Script" uid="uid://ol3hy82gbq6n" path="res://scenes/label.gd" id="3_rurhu"]
+[ext_resource type="PackedScene" uid="uid://ddtew1scdv26h" path="res://scenes/spawner.tscn" id="3_ycayy"]
+[ext_resource type="Texture2D" uid="uid://bmcirctr4e1on" path="res://assets/rope.png" id="4_mw25s"]
+[ext_resource type="Script" uid="uid://vmigh40evun3" path="res://scenes/player_list.gd" id="4_y3j0m"]
+[ext_resource type="Texture2D" uid="uid://b6ohtvok43tfc" path="res://assets/Talk.png" id="5_b5spy"]
+[ext_resource type="Texture2D" uid="uid://cqcykl23jpbqr" path="res://assets/audience.png" id="5_y3j0m"]
+[ext_resource type="Script" path="res://scenes/talk_manag.gd" id="6_utbpp"]
+
+[node name="GameScene" type="Node2D"]
+script = ExtResource("1_kk2rg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.25, 0.25)
+
+[node name="Spawner" parent="." instance=ExtResource("3_ycayy")]
+unique_name_in_owner = true
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -6
+layout_direction = 1
+offset_left = -2304.0
+offset_top = -1294.0
+offset_right = 2380.0
+offset_bottom = 1309.0
+texture = ExtResource("3_bw6k5")
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1224.0
+offset_right = 4628.0
+offset_bottom = 1353.0
+texture = ExtResource("4_mw25s")
+
+[node name="GameManager" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="GameManager"]
+offset_left = -2126.0
+offset_top = -1107.0
+offset_right = -1457.0
+offset_bottom = -935.0
+theme_override_font_sizes/font_size = 50
+text = "TIme before next wave: 0"
+script = ExtResource("3_rurhu")
+
+[node name="Timer" type="Timer" parent="GameManager"]
+wait_time = 60.0
+autostart = true
+
+[node name="talk_manag" type="Sprite2D" parent="GameManager"]
+z_index = -1
+position = Vector2(1027.22, -646.234)
+rotation = -3.14159
+scale = Vector2(12.9956, 8.50047)
+texture = ExtResource("5_b5spy")
+script = ExtResource("6_utbpp")
+metadata/_edit_group_ = true
+
+[node name="talk" type="Label" parent="GameManager"]
+z_index = 11
+offset_left = 750.0
+offset_top = -730.0
+offset_right = 1365.0
+offset_bottom = -517.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Just one more qubit bro.. 
+just one 
+"
+metadata/_edit_group_ = true
+
+[node name="Audience" type="TextureRect" parent="."]
+z_index = 3
+offset_left = -2294.0
+offset_top = 890.0
+offset_right = 2314.0
+offset_bottom = 1309.0
+texture = ExtResource("5_y3j0m")
+
+[node name="Audience" type="TextureRect" parent="Audience"]
+visible = false
+z_index = 3
+layout_mode = 0
+offset_left = 19.0
+offset_top = -2197.0
+offset_right = 4627.0
+offset_bottom = -1778.0
+texture = ExtResource("5_y3j0m")
+flip_h = true
+flip_v = true
+
+[node name="PlayerList" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_y3j0m")
+
+[node name="Player" parent="PlayerList" instance=ExtResource("1_uqa2c")]
+position = Vector2(19, 0)
+
+[node name="GameOver" type="Node2D" parent="."]
+visible = false
+z_index = 16
+
+[node name="TextureRect" type="TextureRect" parent="GameOver"]
+offset_left = -2304.0
+offset_top = -1294.0
+offset_right = 2323.0
+offset_bottom = 1309.0
+texture = ExtResource("3_bw6k5")
+
+[node name="QuitGame" type="Button" parent="GameOver"]
+offset_left = 346.0
+offset_top = -212.0
+offset_right = 1225.0
+offset_bottom = 209.0
+theme_override_font_sizes/font_size = 100
+text = "Quit
+"
+
+[node name="PlayAgain" type="Button" parent="GameOver"]
+offset_left = -1363.0
+offset_top = -204.0
+offset_right = -400.0
+offset_bottom = 195.0
+theme_override_font_sizes/font_size = 100
+text = "Play Again"
+
+[node name="MainMenu" type="Node2D" parent="."]
+visible = false
+
+[node name="LeftCurtain" type="TextureRect" parent="MainMenu"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RightCurtain" type="TextureRect" parent="MainMenu"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayButton" type="Button" parent="MainMenu"]
+offset_left = -322.0
+offset_top = -154.0
+offset_right = 326.0
+offset_bottom = 155.0
+theme_override_font_sizes/font_size = 100
+text = "Play"
+
+[connection signal="pressed" from="GameOver/QuitGame" to="." method="_on_quit_game_pressed"]
+[connection signal="pressed" from="GameOver/PlayAgain" to="." method="_on_play_again_pressed"]
