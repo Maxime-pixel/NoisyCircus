@@ -51,9 +51,7 @@ func _on_timer_timeout() -> void:
 	get_tree().root.add_child(new_projectile)
 
 func _take_damage() -> void:
-	print('taking damage')
 	if len(player_list.get_children()) == 1:
-		print('game over...')
 		game_over_screen.visible = true
 		self.disable_mode
 	timer.stop()

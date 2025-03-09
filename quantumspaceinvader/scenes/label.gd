@@ -18,4 +18,4 @@ func _process(delta):
 		print("Qubit lifetime: %d min %d s" % [minutes, seconds])
 	else:
 		text = "Qubit lifetime: " + str(elapsed_time).pad_decimals(2) + " s"
-		print("Qubit lifetime: ", elapsed_time)
+		#print("Qubit lifetime: ", elapsed_time)

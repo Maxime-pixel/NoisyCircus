@@ -26,7 +26,6 @@ func _on_timer_timeout() -> void:
 	elapsed_time += timer.wait_time  # Track elapsed time
 
 	if elapsed_time >= 10:  # Print every 10 seconds
-		print("10 seconds have passed")
 		elapsed_time = 0  # Reset time counter
 		if speed_incr + new_node.SPEED < 300:
 			new_node.SPEED += speed_incr

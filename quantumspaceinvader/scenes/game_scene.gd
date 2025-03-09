@@ -8,3 +8,11 @@ func _on_play_again_pressed() -> void:
 
 func _on_quit_game_pressed() -> void:
 	get_tree().quit()
+	
+	
+	
+	
+	
+	
+	
+	

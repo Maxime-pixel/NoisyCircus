@@ -46,21 +46,20 @@ autostart = true
 
 [node name="talk_manag" type="Sprite2D" parent="GameManager"]
 z_index = -1
-position = Vector2(1027.22, -646.234)
+position = Vector2(1515, -987)
 rotation = -3.14159
-scale = Vector2(12.9956, 8.50047)
+scale = Vector2(3.96079, 1.74684)
 texture = ExtResource("5_b5spy")
 script = ExtResource("6_utbpp")
 metadata/_edit_group_ = true
 
 [node name="talk" type="Label" parent="GameManager"]
 z_index = 11
-offset_left = 750.0
-offset_top = -730.0
-offset_right = 1365.0
-offset_bottom = -517.0
+offset_left = 1434.0
+offset_top = -1006.0
+offset_right = 1641.0
+offset_bottom = -931.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
 text = "Just one more qubit bro.. 
 just one 
 "
