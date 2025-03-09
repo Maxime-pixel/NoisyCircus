@@ -34,8 +34,11 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	if Input.is_action_just_pressed("switch") or Input.is_action_just_pressed("switch"):
-		rotate(PI)
 		look_up = not look_up
+		$UpwardCollisionShape.visible = not $UpwardCollisionShape.visible
+		$UpwardSprite.visible = not $UpwardSprite.visible
+		$DownwardCollisionShape.visible = not $DownwardCollisionShape.visible
+		$DownwardSprite.visible = not $DownwardSprite.visible
 
 	move_and_slide()
 	position.x = wrapf(position.x, -2250, 2250)
@@ -48,6 +51,8 @@ func _on_timer_timeout() -> void:
 		sign = 1
 	new_projectile.position = position + Vector2(0,  sign * 115)
 	new_projectile.up = -sign
+	if sign == 1 :
+		new_projectile.rotate(PI)
 	get_tree().root.add_child(new_projectile)
 
 func _take_damage() -> void:
