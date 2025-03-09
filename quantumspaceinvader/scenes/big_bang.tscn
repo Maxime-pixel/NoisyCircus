@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b07yecrkwsoat"]
+
+[ext_resource type="PackedScene" uid="uid://calyi21lbxsi5" path="res://scenes/toffoli.tscn" id="1_jd58j"]
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(100, 100)
+
+[node name="toffoli" parent="." instance=ExtResource("1_jd58j")]

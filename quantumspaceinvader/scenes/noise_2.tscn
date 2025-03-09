@@ -16,7 +16,7 @@ stream_1/stream = ExtResource("4_oue4u")
 
 [node name="noise2" type="Area2D"]
 scale = Vector2(2, 2)
-collision_layer = 6
+collision_layer = 134
 collision_mask = 5
 script = ExtResource("1_5biqg")
 

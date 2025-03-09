@@ -12,6 +12,7 @@ var playerID
 @onready var alice_appears: AudioStreamPlayer2D = $AliceAppears
 @onready var timer: Timer = $Timer
 @onready var alice_death: AudioStreamPlayer2D = $aliceDeath
+@onready var toffoli: Area2D = $"../../toffoli"
 
 
 var left_entangled = false
