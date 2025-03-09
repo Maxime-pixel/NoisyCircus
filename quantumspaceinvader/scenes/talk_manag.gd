@@ -5,19 +5,20 @@ extends Sprite2D
 @onready var talk_manag: Sprite2D = $"."
 
 var sentences: Array = [
-	"Quantum mechanics is weird!",
-	"Keep calm and compute!",
-	"Superposition is real!",
-	"Entanglement is spooky!",
-	"Qubits are the future!"
+	"One more qubit bro.. I promise just one more",
+	"I know a cat that can do that better...",
+	"Entangle moi",
+	"hello chef !!",
+	"Where is bob ?"
+	
 ]
 
 var talk_pos: Array = [
-	Vector2(100, 200),
-	Vector2(300, 400),
-	Vector2(500, 100),
-	Vector2(250, 350),
-	Vector2(600, 150)
+	Vector2(-1532, 620),
+	Vector2(-801, 785),
+	Vector2(-1553, 806),
+	Vector2(-12, 8),
+	Vector2(1853, 902)
 ]
 
 func _ready():

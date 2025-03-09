@@ -6,8 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://p1ihodmnqino" path="res://assets/audio/bubble_pop/bubble_pop2.wav" id="4_oue4u"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5biqg"]
-radius = 525.304
-height = 1620.0
+radius = 359.188
+height = 1235.78
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kvam1"]
 streams_count = 2
@@ -26,8 +26,8 @@ scale = Vector2(0.0768771, 0.0768771)
 texture = ExtResource("2_5biqg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -7.62939e-06)
-rotation = 1.54985
+position = Vector2(2, 1.5)
+rotation = 4.45058
 scale = Vector2(0.1, 0.098)
 shape = SubResource("CapsuleShape2D_5biqg")
 
